@@ -30,4 +30,5 @@ public class OrderResponse {
     private String customerPhone;
     private String orderStatus;
     private List<OrderDetailResponse> orderDetails;
+    private int billID; // Thêm thuộc tính billID vào đây nếu cần thiết
 }

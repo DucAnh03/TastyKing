@@ -38,7 +38,11 @@ public enum ErrorCode {
     REWARD_NO_EXIST(1030,"Reward point does not exist" ,HttpStatus.BAD_REQUEST),
     USER_HAS_NOT_EXCHANGED_VOUCHER(1031,"User has not exchanged this voucher.", HttpStatus.BAD_REQUEST),
     INVALID_BOOKING_TIME(1032, "Can not receive table. Please wait", HttpStatus.BAD_REQUEST),
-    RATING_INVALID(1033, "Rating must be greater than 1", HttpStatus.BAD_REQUEST);
+    RATING_INVALID(1033, "Rating must be greater than 1", HttpStatus.BAD_REQUEST),
+    BILL_NOT_EXISTED(1033,"Bill has not exist",HttpStatus.BAD_REQUEST),
+    PAYMENT_NOT_EXISTED(1033,"Payment has not exist",HttpStatus.BAD_REQUEST),
+    ORDERID_OR_CUSTOMERNAME_MUST_BE_PROVIDED(1034,"Order ID or Customer Name must be provided",HttpStatus.BAD_REQUEST),
+    ONLY_PAY_OR_NOT_PAY_YET_IS_ALLOWED(1035,"Invalid status. Only 'paid' or 'not pay yet' is allowed.",HttpStatus.BAD_REQUEST);
     private int code;
     private String message;
     private HttpStatusCode statusCode;

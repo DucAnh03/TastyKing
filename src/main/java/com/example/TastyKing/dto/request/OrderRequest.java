@@ -26,6 +26,7 @@ public class OrderRequest {
     private User user;
     @NotNull(message = "Table must not be null")
     private Tables tables;
+    private int billID;
 
     private LocalDateTime orderDate;
     private String note;
