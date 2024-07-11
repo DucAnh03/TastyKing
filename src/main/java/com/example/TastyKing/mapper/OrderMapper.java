@@ -11,12 +11,14 @@ import com.example.TastyKing.entity.OrderDetailId;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {OrderDetailMapper.class})
 public interface OrderMapper {
 
+    OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
     @Mapping(source = "billID", target = "bill.billID")
     Order toOrder(OrderRequest request);
 

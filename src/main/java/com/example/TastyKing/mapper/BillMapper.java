@@ -9,7 +9,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring",uses = {OrderMapper.class})
 public interface BillMapper {
-
     BillMapper INSTANCE = Mappers.getMapper(BillMapper.class);
     Bill toBill(BillRequest request);
     @Mapping(source = "orderList", target = "orderResponses")

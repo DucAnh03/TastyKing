@@ -8,11 +8,13 @@ import com.example.TastyKing.entity.Voucher;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
+import org.mapstruct.factory.Mappers;
 import org.springframework.web.multipart.MultipartFile;
 
 @Mapper(componentModel = "spring")
 public interface FoodMapper {
 
+    FoodMapper INSTANCE = Mappers.getMapper(FoodMapper.class);
     FoodResponse toFoodResponse(Food food);
     @Mapping(source = "foodImage", target = "foodImage", qualifiedByName = "mapImage")
     Food toFood(FoodRequest request);
@@ -23,4 +25,5 @@ public interface FoodMapper {
         }
         return null;
     }
+
 }

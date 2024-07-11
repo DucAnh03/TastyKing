@@ -16,4 +16,5 @@ public class OrderDetailResponse {
     private Double foodPrice;
     private String foodImage;
     private int quantity;
+    private FoodResponse food;
 }

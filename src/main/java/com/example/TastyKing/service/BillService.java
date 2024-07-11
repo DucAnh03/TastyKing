@@ -42,6 +42,17 @@ public class BillService {
                 .collect(Collectors.toList());
     }
 
+    public List<BillResponse> getAllBillsByStatus(String billStatus) {
+        List<Bill> bills = billRepository.findByBillStatus(billStatus);
+        if (bills.isEmpty()) {
+            throw new AppException(ErrorCode.BILL_NOT_EXISTED);
+        }
+        return bills.stream()
+                .map(billMapper::toBillResponse)
+                .collect(Collectors.toList());
+    }
+
+
     public BillResponse getBillById(int billID){
         Bill bill = billRepository.findById(billID).orElseThrow(() ->
                 new AppException(ErrorCode.BILL_NOT_EXISTED));
@@ -71,15 +82,7 @@ public class BillService {
         }
     }
 
-    public List<BillResponse> getAllBillsByStatus(String billStatus) {
-        List<Bill> bills = billRepository.findByBillStatus(billStatus);
-        if (bills.isEmpty()) {
-            throw new AppException(ErrorCode.BILL_NOT_EXISTED);
-        }
-        return bills.stream()
-                .map(billMapper::toBillResponse)
-                .collect(Collectors.toList());
-    }
+
 
     public Bill createNewBillWithStatusNotPayYet() {
         Bill newBill = new Bill();
